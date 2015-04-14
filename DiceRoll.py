@@ -10,8 +10,26 @@ PlayerTwoWins = 0
 GamePlay = True
 
 while (GamePlay):
-	PlayerOneSelection = int(raw_input("Player One Select Dice:"))
-	PlayerTwoSelection = int(raw_input("Player Two Select Dice:"))
+	
+	print (PlayerOneDice)
+	PlayerOneSelection = int(raw_input("Player One Select Die:"))
+	
+	while (PlayerOneSelection not in PlayerOneDice):
+		PlayerOneSelection = int(raw_input("Die Not Available. Please Select Again:"))
+	
+	print (PlayerTwoDice)
+	PlayerTwoSelection = int(raw_input("Player Two Select Die:"))
+	
+	while (PlayerTwoSelection not in PlayerTwoDice):
+		PlayerTwoSelection = int(raw_input("Die Not Available. Please Select Again:"))
+		
+	PlayerOneDice.remove(PlayerOneSelection)
+	if len(PlayerOneDice) == 0:
+		PlayerOneDice = MasterDiceList
+	
+	PlayerTwoDice.remove(PlayerTwoSelection)
+	if len(PlayerTwoDice) == 0:
+		PlayerTwoDice = MasterDiceList
 
 	PlayerOneRoll = randint(1,PlayerOneSelection)
 	PlayerTwoRoll = randint(1,PlayerTwoSelection)
@@ -37,7 +55,10 @@ while (GamePlay):
 				PlayerOneWins = PlayerOneWins+1
 				if (PlayerOneWins == 2):
 					GamePlay = False
-					print ("Player One Wins Game")
+					if (PlayerTwoWins <= -1):
+						print ("Player Two Wins")
+					else:
+						print ("Player One Wins Game")
 	elif (PlayerOneRoll < PlayerTwoRoll):
 		if (PlayerOneRoll == 1): 			# Player One Rolls a 1 and wins
 			GamePlay = False
@@ -57,7 +78,10 @@ while (GamePlay):
 				PlayerTwoWins = PlayerTwoWins+1
 				if (PlayerTwoWins == 2):
 					GamePlay = False
-					print ("Player Two Wins Game")
+					if (PlayerOneWins <= -1):
+						print ("Player One Wins")
+					else:
+						print ("Player Two Wins Game")
 	else:
 		print ("Tie Game")
 
