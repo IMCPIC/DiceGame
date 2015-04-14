@@ -57,7 +57,7 @@ while (GamePlay):
 				if (PlayerOneWins == 2):		# Player One wins game with 2 total points
 					GamePlay = False
 					if (PlayerTwoWins <= -1):	# Player Two -1 trumps 2 points and wins game
-						print ("Player Two Wins")
+						print ("Player Two Wins Game")
 					else:
 						print ("Player One Wins Game")
 	elif (PlayerOneRoll < PlayerTwoRoll):
@@ -70,23 +70,23 @@ while (GamePlay):
 			PlayerTwoWins = 2
 			print ("Player Two Wins Game")
 		else:
-			if (PlayerTwoRoll == 2):			# Players Roll a 2
-				PlayerTwoWins = PlayerTwoWins-1
-			if (PlayerOneRoll == 2):
+			if (PlayerOneRoll == 2):			# Players Roll a 2
 				PlayerOneWins = PlayerOneWins-1
+			if (PlayerTwoRoll == 2):
+				PlayerTwoWins = PlayerTwoWins-1
 			else:								# Player Two wins round
 				print ("Player Two Wins Round")
 				PlayerTwoWins = PlayerTwoWins+1
 				if (PlayerTwoWins == 2):		# Player Two wins game with 2 total points
 					GamePlay = False
 					if (PlayerOneWins <= -1):	# Player One -1 trumps 2 points and wins game
-						print ("Player One Wins")
+						print ("Player One Wins Game")
 					else:
 						print ("Player Two Wins Game")
 	else:										# Players roll same number and tie
 		print ("Tie Game")			
 
-	print ("Player One Wins: {0}, Player Two Wins: {1}" .format(PlayerOneWins,PlayerTwoWins)) # Total Game-play wins
+	print ("Player One Total Wins: {0}, Player Two Total Wins: {1}" .format(PlayerOneWins,PlayerTwoWins)) # Total Game-play wins
 
 
 
