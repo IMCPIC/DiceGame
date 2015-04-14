@@ -5,27 +5,48 @@ MasterDiceList = [4,6,8,10,12,20]
 PlayerOneDice = [4,6,8,10,12,20]
 PlayerTwoDice = [4,6,8,10,12,20]
 
-PlayerOneSelection = int(raw_input("Player One Select Dice:"))
-PlayerTwoSelection = int(raw_input("Player Two Select Dice:"))
-
-PlayerOneRoll = randint(1,PlayerOneSelection)
-PlayerTwoRoll = randint(1,PlayerTwoSelection)
-
 PlayerOneWins = 0
 PlayerTwoWins = 0
 GamePlay = True
 
-print ("Player One: {0}, Player Two: {1}" .format(PlayerOneRoll,PlayerTwoRoll))
+while (GamePlay):
+	PlayerOneSelection = int(raw_input("Player One Select Dice:"))
+	PlayerTwoSelection = int(raw_input("Player Two Select Dice:"))
 
-if (PlayerOneRoll > PlayerTwoRoll):
-    print ("Player One Wins")
-	PlayerOneWins = PlayerOneWins+1
-	
-elif (PlayerOneRoll < PlayerTwoRoll):
-	print ("Player Two Wins")
-	PlayerTwoWins = PlayerTwoWins+1
-else:
-	print ("Tie Game")
+	PlayerOneRoll = randint(1,PlayerOneSelection)
+	PlayerTwoRoll = randint(1,PlayerTwoSelection)
+
+	print ("Player One: {0}, Player Two: {1}" .format(PlayerOneRoll,PlayerTwoRoll))
+
+	if (PlayerOneRoll > PlayerTwoRoll):
+		if (PlayerOneRoll == 1):
+			GamePlay = False
+			PlayerOneWins = 2
+			print ("Player One Wins Game")
+		elif (PlayerTwoRoll == 1):
+			GamePlay = False
+			PlayerTwoWins = 2
+			print("Player Two Wins Game")
+		else:
+			print ("Player One Wins Round")
+			PlayerOneWins = PlayerOneWins+1
+	elif (PlayerOneRoll < PlayerTwoRoll):
+		if (PlayerOneRoll == 1):
+			GamePlay = False
+			PlayerOneWins = 2
+			print ("Player One Wins Game")
+		elif (PlayerTwoRoll == 1):
+			GamePlay = False
+			PlayerTwoWins = 2
+			print ("Player Two Wins Game")
+		else:
+			print ("Player Two Wins Round")
+			PlayerTwoWins = PlayerTwoWins+1
+	else:
+		print ("Tie Game")
+
+	print ("Player One Wins: {0}, Player Two Wins: {1}" .format(PlayerOneWins,PlayerTwoWins))
+
 
 
 	
