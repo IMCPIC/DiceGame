@@ -58,8 +58,6 @@ while (GamePlay):								# Game play control loop
 					GamePlay = False
 					if (PlayerTwoWins <= -1):	# Player Two -1 trumps 2 points and wins game
 						print ("Player Two Wins Game")
-					if (PlayerTwoWins <= -1):	# Check if player 2 has -1 wins to auto win
-						print ("Player Two Wins")
 					else:
 						print ("Player One Wins Game")
 	elif (PlayerOneRoll < PlayerTwoRoll):		# Player 2 roll is greater
